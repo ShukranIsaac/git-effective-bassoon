@@ -2,7 +2,10 @@ package com.example.gitsocial;
 
 import android.os.Bundle;
 
+import com.example.gitsocial.domain.Goal;
 import com.example.gitsocial.domain.HDMIConnector;
+import com.example.gitsocial.domain.User;
+import com.example.gitsocial.domain.UserActivity;
 import com.example.gitsocial.domain.VGA;
 import com.example.gitsocial.domain.VGAConnector;
 import com.example.gitsocial.domain.VGAHDMIAdapter;
@@ -22,20 +25,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
+        User user = User.builder()
+                .id(23)
+                .email("imwakabira@cc.ac.mw")
+                .password("12334456")
+                .username("ShukranIsaac")
+                .build();
 
+        UserActivity.builder().type("").id(12).description("").build();
 
+        Goal.builder().id(1).title("").build();
 
         HDMIConnector hdmiConnector = null;
 
         VGAConnector adapter = new VGAHDMIAdapter(hdmiConnector);
-
         VGA vga = new VGA();
         vga.set(adapter);
-
-
-
-
-
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
