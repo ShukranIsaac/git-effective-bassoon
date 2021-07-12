@@ -9,17 +9,17 @@
         android:id="@+id/navigation_home"
         android:name="com.example.gitsocial.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home_list" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.gitsocial.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_messages"
+        android:name="com.example.gitsocial.ui.messages.MessagesFragment"
+        android:label="@string/title_messages"
+        tools:layout="@layout/fragment_messages" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.gitsocial.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_you"
+        android:name="com.example.gitsocial.ui.you.YouFragment"
+        android:label="@string/title_you"
+        tools:layout="@layout/fragment_you" />
 </navigation>
