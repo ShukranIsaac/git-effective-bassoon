@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gitsocial.R;
 import com.example.gitsocial.domain.Tutorial;
 import com.example.gitsocial.domain.User;
+import com.example.gitsocial.ui.OnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +28,7 @@ import java.util.List;
 public class HomeDataViewAdapter extends RecyclerView.Adapter<HomeDataViewAdapter.ViewHolder> {
     private List<User> mUsers;
     private Context mContext;
+    private OnItemClickListener onItemClickListener;
 
     public HomeDataViewAdapter(Context context, List<User> ITEMS) {
         this.mUsers = ITEMS;
@@ -52,8 +55,16 @@ public class HomeDataViewAdapter extends RecyclerView.Adapter<HomeDataViewAdapte
                     .into(holder.mUserAvatar);
         }
 
-        //Setting text view title
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, user.login(), Toast.LENGTH_LONG).show();
+            }
+        };
+
         holder.mUser.setText(Html.fromHtml(user.login()));
+        holder.mView.setOnClickListener(listener);
+        holder.mUserAvatar.setOnClickListener(listener);
     }
 
     @Override

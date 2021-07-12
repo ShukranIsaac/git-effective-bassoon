@@ -22,8 +22,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.gitsocial.R;
+import com.example.gitsocial.domain.User;
+import com.example.gitsocial.ui.OnItemClickListener;
 
 import timber.log.Timber;
 
@@ -31,11 +34,9 @@ import timber.log.Timber;
  * A fragment representing a list of Items.
  */
 public class HomeFragment extends Fragment {
-
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
     public static final int PICK_CONTACT_REQUEST_CODE = 200;
     public static final String TAG = HomeFragment.class.getSimpleName();
+    private HomeDataViewAdapter mViewAdapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -64,8 +65,7 @@ public class HomeFragment extends Fragment {
 //        recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
 
         // download
-        String token = getString(R.string.github_token);
-        String url = "https://api.github.com/users/ShukranIsaac/followers?token" + token;
+        String url = "https://api.github.com/users/ShukranIsaac/followers?token" + getString(R.string.github_token);
         Downloader.builder()
                 .context(requireActivity())
                 .progressBar(view.findViewById(R.id.progress_bar))
