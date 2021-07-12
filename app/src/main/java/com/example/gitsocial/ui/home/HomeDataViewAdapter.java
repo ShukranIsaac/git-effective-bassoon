@@ -63,6 +63,7 @@ public class HomeDataViewAdapter extends RecyclerView.Adapter<HomeDataViewAdapte
         };
 
         holder.mUser.setText(Html.fromHtml(user.login()));
+        
         holder.mView.setOnClickListener(listener);
         holder.mUserAvatar.setOnClickListener(listener);
     }
