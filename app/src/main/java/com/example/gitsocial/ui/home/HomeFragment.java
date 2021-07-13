@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -22,11 +23,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.gitsocial.R;
-import com.example.gitsocial.domain.User;
-import com.example.gitsocial.ui.OnItemClickListener;
 
 import timber.log.Timber;
 
@@ -36,7 +34,6 @@ import timber.log.Timber;
 public class HomeFragment extends Fragment {
     public static final int PICK_CONTACT_REQUEST_CODE = 200;
     public static final String TAG = HomeFragment.class.getSimpleName();
-    private HomeDataViewAdapter mViewAdapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -62,15 +59,19 @@ public class HomeFragment extends Fragment {
         Context context = view.getContext();
         RecyclerView recyclerView = view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-//        recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+
+        // if orientation changed use GridLayoutManager
+        if (requireActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+        }
 
         // download
-        String url = "https://api.github.com/users/ShukranIsaac/followers?token" + getString(R.string.github_token);
+        String url = "https://api.github.com/users/ShukranIsaac/followers?token=" + getString(R.string.github_token);
         Downloader.builder()
                 .context(requireActivity())
                 .progressBar(view.findViewById(R.id.progress_bar))
                 .view(recyclerView)
-                .url(url)
+                .data(url)
                 .download();
     }
 

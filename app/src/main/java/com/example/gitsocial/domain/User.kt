@@ -4,6 +4,7 @@ class User : Follower {
     private var avatar_url: String? = null
     private var login: String? = null
     private var mPlan: Plan? = null
+    private var id: String? = null
 
     constructor() {}
 
@@ -11,12 +12,14 @@ class User : Follower {
         avatar_url = builder.avatar_url
         login = builder.login
         mPlan = builder.mPlan
+        id = builder.id
     }
 
     fun toBuilder(): Builder {
         return Builder().plan(mPlan)
                 .avatar_url(avatar_url)
                 .login(login)
+                .id(id)
     }
 
     fun plan(): Plan? {
@@ -31,10 +34,20 @@ class User : Follower {
         return login
     }
 
+    override fun id(): String? {
+        return id
+    }
+
     class Builder : Follower.Builder() {
         var mPlan: Plan? = null
         var avatar_url: String? = null
         var login: String? = null
+        var id: String? = null
+
+        override fun id(id: String?): Builder {
+            this.id = id
+            return this
+        }
 
         fun plan(plan: Plan?): Builder {
             mPlan = plan

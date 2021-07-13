@@ -35,8 +35,9 @@ public class Result {
                 JSONObject post = response.optJSONObject(i);
 
                 mUsers.add(User.builder()
+                        .id(post.getString("id"))
                         .avatar_url(post.getString("avatar_url"))
-                        .login(post.optString("login"))
+                        .login(post.getString("login"))
                         .build());
             }
 

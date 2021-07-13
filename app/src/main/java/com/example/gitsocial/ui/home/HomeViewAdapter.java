@@ -25,12 +25,11 @@ import java.util.List;
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Tutorial}.
  */
-public class HomeDataViewAdapter extends RecyclerView.Adapter<HomeDataViewAdapter.ViewHolder> {
+public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHolder> {
     private List<User> mUsers;
     private Context mContext;
-    private OnItemClickListener onItemClickListener;
 
-    public HomeDataViewAdapter(Context context, List<User> ITEMS) {
+    public HomeViewAdapter(Context context, List<User> ITEMS) {
         this.mUsers = ITEMS;
         this.mContext = context;
     }
@@ -55,17 +54,11 @@ public class HomeDataViewAdapter extends RecyclerView.Adapter<HomeDataViewAdapte
                     .into(holder.mUserAvatar);
         }
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, user.login(), Toast.LENGTH_LONG).show();
-            }
-        };
+        View.OnClickListener listener = v -> Toast.makeText(mContext, user.login(),
+                Toast.LENGTH_LONG).show();
 
         holder.mUser.setText(Html.fromHtml(user.login()));
-        
         holder.mView.setOnClickListener(listener);
-        holder.mUserAvatar.setOnClickListener(listener);
     }
 
     @Override

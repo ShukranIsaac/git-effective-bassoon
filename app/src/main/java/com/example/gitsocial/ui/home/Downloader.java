@@ -84,7 +84,7 @@ public class Downloader extends AsyncTask<String, Void, Integer> {
         progressBar.setVisibility(View.GONE);
 
         if (result == 1) {
-            mRecyclerView.setAdapter(new HomeDataViewAdapter(mContext, mUsers));
+            mRecyclerView.setAdapter(new HomeViewAdapter(mContext, mUsers));
         } else {
             Toast.makeText(mContext, "Failed to fetch data!", Toast.LENGTH_SHORT).show();
         }
@@ -106,7 +106,7 @@ public class Downloader extends AsyncTask<String, Void, Integer> {
             return this;
         }
 
-        public Builder url(String url) {
+        public Builder data(String url) {
             this.url = url;
             return this;
         }
@@ -117,7 +117,8 @@ public class Downloader extends AsyncTask<String, Void, Integer> {
         }
 
         public void download() {
-            new Downloader(this).execute(url);
+            Downloader downloader = new Downloader(this);
+            downloader.execute(url);
         }
     }
 }
