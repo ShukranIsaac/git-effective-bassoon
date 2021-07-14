@@ -1,6 +1,6 @@
 package com.example.gitsocial.domain;
 
-public class Repo {
+public class Repo extends BaseObject {
     private final Owner mOwner;
 
     public Repo(Builder builder) {
@@ -13,6 +13,11 @@ public class Repo {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    @Override
+    public Boolean deleted() {
+        return null;
     }
 
     public static class Builder {

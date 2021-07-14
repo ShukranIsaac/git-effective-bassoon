@@ -41,6 +41,10 @@ public class HomeFragment extends Fragment {
      */
     public HomeFragment() { }
 
+    public HomeFragment newInstance() {
+        return new HomeFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,9 +120,6 @@ public class HomeFragment extends Fragment {
             Cursor cursor = requireActivity().getContentResolver().query(data.getData(),
                     new String[] {ContactsContract.Contacts.DISPLAY_NAME},
                     null, null, null);
-
-            /*SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.person_name_and_number,
-                    cursor, fromColumns, toViews, 0);*/
 
             if (cursor.moveToFirst()) { // True if the cursor is not empty
                 int columnIndex = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);

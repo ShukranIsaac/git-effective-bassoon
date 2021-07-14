@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gitsocial.domain.User;
-import com.example.gitsocial.network.utils.Result;
+import com.example.gitsocial.data.network.utils.Result;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

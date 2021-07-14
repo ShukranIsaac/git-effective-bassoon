@@ -1,4 +1,4 @@
-package com.example.gitsocial.network.utils;
+package com.example.gitsocial.data.network.utils;
 
 import android.content.Context;
 
@@ -10,9 +10,6 @@ import com.example.gitsocial.domain.User;
 
 import junit.framework.TestCase;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,8 +19,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import timber.log.Timber;
 
 @RunWith(AndroidJUnit4.class)
 public class ResultTest extends TestCase {

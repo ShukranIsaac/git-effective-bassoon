@@ -1,4 +1,4 @@
-package com.example.gitsocial.network.utils;
+package com.example.gitsocial.data.network.utils;
 
 import com.example.gitsocial.domain.User;
 
@@ -7,9 +7,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import timber.log.Timber;
 
 public class Result {
     public static final String TAG = Result.class.getSimpleName();
