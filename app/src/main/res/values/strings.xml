@@ -20,5 +20,5 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="fab_add_channel">Add</string>
     <string name="app_bar_search">Search</string>
-    <string name="github_token"></string>
+    <string name="github_token">/*put your github api key here*/</string>
 </resources>
